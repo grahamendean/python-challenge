@@ -11,13 +11,34 @@ with open (file_to_load) as csvfile:
     headers = next(csvreader)
     first_row = next(csvreader)
 
-total_votes = 0
-candidates_list = 0
-percentage_of_winner = 0
-total_winner = int(first_row[1])
-popular_vote = int(first_row[1])
+    total_votes = 1
+    candidates_names = []
+    vote_counter = []
+    
+
+    for row in csvreader:
+        total_votes += 1
+        candidates_list = row[2]
+
+        if candidates_list in candidates_names:
+            candidates_number = candidates_names.index(candidates_list)
+
+        else:
+            candidates_names.append(candidates_list)    
+
+            
+            
+
+        
 
 
-for row in csvreader:
-    total_votes += 1
-    candidates_list += int(row[1])
+#print statements
+
+print('\n\nElection Results')
+print('----------------------------')
+print('Total Votes: ' + str(total_votes))
+print('----------------------------')
+print(candidates_list)
+
+
+        
